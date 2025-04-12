@@ -28,7 +28,7 @@ const ProductPage = () => {
   if (!product) return <p className="text-center mt-8">Product not found.</p>;
 
   return (
-    <div className="flex items-center justify-center p-4 mt-10">
+    <div className="flex items-center justify-center flex-wrap p-4 mt-10">
       <div className="p-4">
         <Image
           src={product.image}
@@ -39,9 +39,17 @@ const ProductPage = () => {
         />
       </div>
       <div className="max-w-md p-4">
-        <h1 className="text-2xl font-bold mb-4">{product.name}</h1>
-        <p className="text-2xl text-green-600 my-8">${product.price}</p>
-        <p className="text-gray-700 leading-relaxed">{product.description}</p>
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
+          {product.name}
+        </h1>
+
+        <p className="text-lg sm:text-xl md:text-2xl text-green-600 my-8">
+          ${product.price}
+        </p>
+
+        <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
+          {product.description}
+        </p>
       </div>
     </div>
   );
