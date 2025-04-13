@@ -1,4 +1,5 @@
 "use client";
+import CartPreview from "@/components/cartPreview";
 import ProductCard from "@/components/productCard";
 import Search from "@/components/search";
 import { Product } from "@/types/product";
@@ -34,10 +35,10 @@ const Page = () => {
   const visibleProducts = filteredProducts.slice(0, visibleCount);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-6">
+    <div className="max-w-6xl mx-auto py-8">
+      <div className="flex justify-between items-center gap-1 mb-6">
         <Search onSearch={setSearchValue} />
-        <input type="checkbox" name="la" id="la" />
+        <CartPreview />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

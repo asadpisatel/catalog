@@ -1,14 +1,17 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Product } from "@/types/product";
 import Image from "next/image";
 import { findProductById } from "@/utils/helpers";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft } from "lucide-react";
 
 const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<Product>();
+  const router = useRouter();
 
   async function fetchData() {
     try {
@@ -25,10 +28,18 @@ const ProductPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
+  function handleClick() {
+    router.back();
+  }
+
   if (!product) return <p className="text-center mt-8">Product not found.</p>;
 
   return (
-    <div className="flex items-center justify-center flex-wrap p-4 mt-10">
+    <>
+    <Button onClick={handleClick} className="mt-10 cursor-pointer">
+    <ChevronLeft />
+    </Button>
+    <div className="flex items-center justify-center flex-wrap p-4">
       <div className="p-4">
         <Image
           src={product.image}
@@ -52,6 +63,8 @@ const ProductPage = () => {
         </p>
       </div>
     </div>
+    </>
+    
   );
 };
 
