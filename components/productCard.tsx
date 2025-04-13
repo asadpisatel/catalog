@@ -30,7 +30,7 @@ const ProductCard = ({ product }: Props) => {
         />
       </CardHeader>
       <CardContent>
-        <h3 className="text-lg font-semibold">{product.name}</h3>
+        <h3 className="text-sm font-semibold">{product.name}</h3>
         <p className="text-muted-foreground">${product.price}</p>
       </CardContent>
     </Card>
